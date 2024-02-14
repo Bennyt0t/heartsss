@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click to Open Letter</title>
+<style>
+  body {
+    font-family: Brush Script MT, cursive;
+    text-align: center;
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  .letter-container {
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #db2222;
+    border-radius: 10px;
+    max-width: 600px;
+    background-color: #bd1414d2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .letter-header {
+    background-color: #DC38D2;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-top: -20px;
+  }
+  .letter-header h2 {
+    margin: 0;
+  }
+  .letter-content {
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+    padding: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .letter-content.open {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="valentine-design">
+    <div class="heart"></div>
+</div>
+<div class="letter-container">
+  <div class="letter-header">
+    <h2>Click to Open Letter</h2>
+  </div>
+  <button onclick="openLetter()">Open Letter</button>
+  <div class="letter-content" id="letter-content">
+    <p>Dear roila,</p>
+    <p>I want to express my gratitude for being in my life. Meeting you has been one of the most wonderful surprise. Your presence has added colors to my world and warmth to my heart.</p>
+    <p>Thank you for being the special person that you are. Your kindness, intelligence, and beauty are truly remarkable, and I feel incredibly fortunate to have you by my side.</p>
+    <p>With love and appreciation,</p>
+    <p class="signature">Benny</p>
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+  </div>
+</div>
+
+<script>
+    function changeBackgroundColor() {
+            document.body.style.backgroundColor = getRandomColor();
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+  function openLetter() {
+    var letterContent = document.getElementById("letter-content");
+    letterContent.classList.toggle("open");
+  }
+</script>
+
+</body>
+</html>
